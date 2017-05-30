@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@91.121.90.114">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="information_schema">
+      <Current>1</Current>
+    </schema>
+    <schema id="3" parent="1" name="javafx_ftp"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="privatboligen">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="7" parent="1" name="tech1"/>
+    <table id="8" parent="6" name="customers"/>
+    <table id="9" parent="6" name="files"/>
+    <table id="10" parent="6" name="invoices"/>
+    <table id="11" parent="6" name="users"/>
+    <table id="12" parent="6" name="zipcodes"/>
+    <column id="13" parent="8" name="customer_customercvr">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="14" parent="8" name="customer_customername">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="15" parent="8" name="customer_address">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="16" parent="8" name="customer_zipcode">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="8" name="customer_contactperson">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="8" name="customer_telephonenumber">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="8" name="customer_email">
+      <Position>7</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="20" parent="8" name="zipcode_zip_idx">
+      <ColNames>customer_zipcode</ColNames>
+    </index>
+    <key id="21" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customer_customercvr</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="22" parent="8" name="zipcode_zip">
+      <ColNames>customer_zipcode</ColNames>
+      <RefSchemaName>privatboligen</RefSchemaName>
+      <RefTableName>zipcodes</RefTableName>
+      <RefColNames>zipcode_zip</RefColNames>
+    </foreign-key>
+    <column id="23" parent="9" name="file_fileid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="24" parent="9" name="file_filename">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="9" name="file_file">
+      <Position>3</Position>
+      <DataType>longblob|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="26" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>file_fileid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="27" parent="10" name="invoice_invoicenumber">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="10" name="invoice_customercvr">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="10" name="invoice_invoicedate">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="10" name="invoice_paymentdate">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="10" name="invoice_fileid">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="10" name="invoice_userid">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="33" parent="10" name="customer_customerid_idx">
+      <ColNames>invoice_customercvr</ColNames>
+    </index>
+    <index id="34" parent="10" name="file_file_idx">
+      <ColNames>invoice_fileid</ColNames>
+    </index>
+    <index id="35" parent="10" name="user_userid_idx">
+      <ColNames>invoice_userid</ColNames>
+    </index>
+    <key id="36" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>invoice_invoicenumber</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="37" parent="10" name="customer_customerid">
+      <ColNames>invoice_customercvr</ColNames>
+      <RefSchemaName>privatboligen</RefSchemaName>
+      <RefTableName>customers</RefTableName>
+      <RefColNames>customer_customercvr</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="38" parent="10" name="file_file">
+      <ColNames>invoice_fileid</ColNames>
+      <RefSchemaName>privatboligen</RefSchemaName>
+      <RefTableName>files</RefTableName>
+      <RefColNames>file_fileid</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="39" parent="10" name="user_userid">
+      <ColNames>invoice_userid</ColNames>
+      <RefSchemaName>privatboligen</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>user_userid</RefColNames>
+    </foreign-key>
+    <column id="40" parent="11" name="user_userid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="11" name="user_username">
+      <Position>2</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="11" name="user_password">
+      <Position>3</Position>
+      <DataType>varchar(150)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="11" name="user_role">
+      <Position>4</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="44" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_userid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="45" parent="12" name="zipcode_zip">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="12" name="zipcode_city">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="47" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>zipcode_zip</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

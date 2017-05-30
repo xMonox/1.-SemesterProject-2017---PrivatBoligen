@@ -1,0 +1,76 @@
+.root{
+   /* -fx-background-image: url("bg_gradient.jpg");*/
+    -fx-background-size: cover, auto;
+    -fx-background-color: #29506D;
+    -fx-background-color: #36393E;
+}
+
+#borderPaneMaster {
+    -fx-background-size: cover, auto;
+    -fx-background-color: #29506D;
+}
+
+#HBox{
+    -fx-background-color: #29506D;
+}
+#LoginBox{
+    -fx-background-color: #f4f4f4;
+    -fx-background-radius: 10px;
+}
+#Header{
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(#254258 0%, #152c38 20%, #214c5e 80%, #585e66 100%);
+    -fx-font-size: 18;
+    -fx-padding: 10, 0, 0, 0;
+}
+
+.text-field {
+    -fx-prompt-text-fill: derive(-fx-control-inner-background,-30%);
+}
+.text-field:focused {
+    -fx-prompt-text-fill: derive(-fx-control-inner-background,-30%);
+}
+
+.panel-buttons {
+    -fx-text-fill: white;
+    -fx-padding: 0px; /* needed to align text vertically */
+    -fx-background-radius: 0px;
+    -fx-font-size: 16px;
+    -fx-min-width: 320px;
+    -fx-min-height: 28px;
+    -fx-max-height: 28px;
+    -fx-background-color: #36393E;
+    -fx-border-radius: 2px;
+    -fx-border-insets: -1px;
+    -fx-border-color: #2E3136;
+    -fx-cursor: hand;
+}
+.panel-buttons:selected, .panel-buttons:disabled {
+    -fx-background-color: #282B30;
+    -fx-min-height: 40;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    /*disabling a button messes with the opacity*/
+    -fx-opacity: 1.0;
+}
+.panel-buttons:hover{
+    -fx-background-color: #3B3F45;
+
+}
+#input-panel {
+    -fx-background-color: #2E3136;
+}
+.labels, .button {
+    -fx-text-fill: white;
+}
+
+.button{
+    -fx-background-color: #4b5057;
+    -fx-border-radius: 2px;
+    -fx-border-insets: -1px;
+    -fx-border-color: #2E3136;
+}
+.button:hover{
+    -fx-cursor: hand;
+    -fx-background-color: #3B3F45;
+}
